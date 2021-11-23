@@ -1,0 +1,35 @@
+server:
+  servlet:
+    context-path: /boot_crud
+  port: 8080
+
+spring:
+  datasource:
+    username: root
+    password: 1234
+    url: jdbc:mysql://localhost:3306/test1?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  messages:
+    encoding: UTF-8
+    basename: i18n.login
+  thymeleaf:
+    cache: false # 关闭缓存，可预编译页面
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: cn.lizhi.entity
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+  offset-as-page-num: true
+
+
